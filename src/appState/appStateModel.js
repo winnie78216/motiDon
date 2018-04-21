@@ -14,11 +14,11 @@ export default class AppState extends AppStateRecord {
   }
   setActiveRoutes(userType) {
       if (userType === 'service') {
-        return this.set('activeRoutes', update(this.activeRoutes, { $set: ['/login', '/dashboard', '/fundir'] }));
+        return this.set('activeRoutes', update(this.activeRoutes, { $set: ['/login', '/dashboard', '/fundir', '/donationmap'] }));
       } else if (userType === 'orginization') {
-        return this.set('activeRoutes', update(this.activeRoutes, { $set: ['/login', '/dashboard'] }));
+        return this.set('activeRoutes', update(this.activeRoutes, { $set: ['/login', '/dashboard', '/donationmap'] }));
       } else {
-        return this.set('activeRoutes', update(this.activeRoutes, { $set: ['/login', '/fundir', '/campaigns'] }));
+        return this.set('activeRoutes', update(this.activeRoutes, { $set: ['/login', '/fundir', '/campaigns', '/donationmap'] }));
       }
   }
 }

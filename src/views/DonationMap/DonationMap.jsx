@@ -19,28 +19,22 @@ const style = {
   },
 };
 
-function Campaigns({ ...props }) {
+function DonationMap({ ...props }) {
 
-  const campaignCards = props.data.map((index, entry) => 
-    <ItemGrid xs={12} sm={12} md={8}>
-    <div style={{margin:10, display:'inline-block'}}>
-      <CampaignCard data={entry} />
-      </div>
-    </ItemGrid> 
-  )
 console.log(props)
   return (
     <Grid container>
-        {campaignCards}
-
+        <ItemGrid xs={12} sm={12} md={8}>
+        lol
+        </ItemGrid> 
     </Grid>
   );
 }
 
-Campaigns = connect(
+DonationMap = connect(
   state => ({
-    data: state.campaignsReducer.campaigns.data
+    data: state.donationMapReducer.donationMap.data
   })
-)(Campaigns)
+)(DonationMap)
 
-export default withStyles(style)(Campaigns);
+export default withStyles(style)(DonationMap);
