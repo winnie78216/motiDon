@@ -7,6 +7,7 @@ import DonationMap from "views/DonationMap/DonationMap.jsx";
 import Icons from "views/Icons/Icons.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import Orginization from "views/Orginization/Orginization.jsx"
+import TransactionHistory from "views/TransactionHistory/TransactionHistory.jsx"
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 
 import {
@@ -18,6 +19,7 @@ import {
   GroupWork,
   Map,
   LocationOn,
+  Description,
   Notifications
 } from "material-ui-icons";
 
@@ -49,6 +51,13 @@ const appRoutes = [
     navbarName: "Campaigns",
     icon: GroupWork,
     component: Campaigns,
+  },
+  {
+    path: "/transactionhistory",
+    sidebarName: "Transaction History",
+    navbarName: "Transaction History",
+    icon: Description,
+    component: TransactionHistory,
   },
   {
     path: "/donationmap",

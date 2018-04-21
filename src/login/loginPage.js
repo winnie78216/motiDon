@@ -22,16 +22,19 @@ class LoginPage extends Component {
     else if (email === "orginization@orginization.org") {
         this.props.setUserType('orginization')
         this.props.setActiveRoutes('orginization')
+        this.props.history.push('/dashboard')
     }
     else if (email === "service@service.com") {
         this.props.setUserType('service')
         this.props.setActiveRoutes('service')
+        this.props.history.push('/dashboard')
     }
     else {
+        this.props.history.push('/campaigns')
         this.props.setUserType('user')
         this.props.setActiveRoutes('user')
     }
-        this.props.history.push('/dashboard')
+        //this.props.history.push('/dashboard')
     }
     
     
