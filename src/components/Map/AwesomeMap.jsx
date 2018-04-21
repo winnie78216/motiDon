@@ -1,21 +1,30 @@
 import React, { Component } from "react";
-import HEREMap from "react-here-maps";
 
 
-function AwesomeMap({ ...props }) {
-    const center = {
-        lat: 51.5,
-        lng: 0,
-    };
+class AwesomeMap extends React.Component {
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+      }
+
+    componentDidMount = () => {
+        console.log(this.myRef)
+        var platform = new window.H.service.Platform({
+            'app_id': 'NsjvkdO6HINUXCU1xAwV',
+            'app_code': 'rvodtjJNT8Ywk8Bnp-Hxbw'
+          });
+        var defaultLayers = platform.createDefaultLayers();
+        var maptypes = platform.createDefaultLayers();
+        var map = new window.H.Map(
+            this.myRef.current,
+            maptypes.normal.map);
+    }
+    render() { 
+
     return (
-        <HEREMap
-            appId={'win78216@gmail.com'}
-            appCode={'killer190'}
-            center={center}
-            zoom={8}
-            hidpi={true}
-        />
+        <div ref={this.myRef} > </div> 
     );
+}
 }
 
 export default (AwesomeMap);
