@@ -2,6 +2,7 @@ import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
 import MeetingNotes from "views/MeetingNotes/MeetingNotes.jsx";
 import Typography from "views/Typography/Typography.jsx";
+import Campaigns from "views/Campaigns/Campaigns.jsx";
 import Icons from "views/Icons/Icons.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
@@ -12,6 +13,7 @@ import {
   ContentPaste,
   LibraryBooks,
   BubbleChart,
+  GroupWork,
   LocationOn,
   Notifications
 } from "material-ui-icons";
@@ -39,13 +41,21 @@ const appRoutes = [
     component: MeetingNotes
   },
   {
+    path: "/campaigns",
+    sidebarName: "Campaigns",
+    navbarName: "Campaigns",
+    icon: GroupWork,
+    component: Campaigns,
+  },
+  {
     path: "/login",
     sidebarName: "Log out",
     navbarName: "Log out",
     icon: null,
     component: MeetingNotes,
     login: true,
-  },
+  },  
+
 /*   {
     path: "/typography",
     sidebarName: "Typography",

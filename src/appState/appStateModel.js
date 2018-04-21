@@ -18,7 +18,7 @@ export default class AppState extends AppStateRecord {
       } else if (userType === 'orginization') {
         return this.set('activeRoutes', update(this.activeRoutes, { $set: ['/login', '/dashboard'] }));
       } else {
-        return this.set('activeRoutes', update(this.activeRoutes, { $set: ['/login', '/fundir'] }));
+        return this.set('activeRoutes', update(this.activeRoutes, { $set: ['/login', '/fundir', '/campaigns'] }));
       }
   }
 }

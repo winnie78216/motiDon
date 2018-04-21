@@ -3,6 +3,7 @@
 // #############################
 
 import ChartCard from "./Cards/ChartCard.jsx";
+import CampaignCard from './Cards/CampaignCard.jsx';
 import ProfileCard from "./Cards/ProfileCard.jsx";
 import RegularCard from "./Cards/RegularCard.jsx";
 import StatsCard from "./Cards/StatsCard.jsx";
@@ -85,6 +86,7 @@ import A from "./Typography/A.jsx";
 export {
   // Cards
   ChartCard,
+  CampaignCard,
   ProfileCard,
   RegularCard,
   StatsCard,
