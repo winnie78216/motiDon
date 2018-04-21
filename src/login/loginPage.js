@@ -1,12 +1,39 @@
 import React, { Component } from 'react';
-import './Login.css';
-import { login } from './login';
+import './login.css';
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { setUserType, setActiveRoutes } from '../appState/appStateActionCreator';
 
 class LoginPage extends Component {
 
     constructor(props) {
         super(props)
     }
+
+    loginMock = () => {
+        console.log("logged in")
+        const email = document.getElementsByClassName('login-input')[0].value
+        const password = document.getElementsByClassName('login-input')[1].value
+        console.log(email, password)
+        if (email === "user@user.com") {
+        this.props.setUserType('user')
+        this.props.setActiveRoutes('user')
+    }
+    else if (email === "orginization@orginization.org") {
+        this.props.setUserType('orginization')
+        this.props.setActiveRoutes('orginization')
+    }
+    else if (email === "service@service.com") {
+        this.props.setUserType('service')
+        this.props.setActiveRoutes('service')
+    }
+    else {
+        this.props.setUserType('user')
+        this.props.setActiveRoutes('user')
+    }
+        this.props.history.push('/dashboard')
+    }
+    
     
     render() {
         return (
@@ -19,7 +46,7 @@ class LoginPage extends Component {
                     <div className="login-form">
                         <input id="email123" className="login-input" type="text" placeholder="Email" name='email' />
                         <input id="password" className="login-input" type="password" placeholder="Password" name='password' />
-                        <button id="login-btn" className="login-btn bold" onClick={() => login()}>LOGIN</button>
+                        <button id="login-btn" className="login-btn bold" onClick={this.loginMock}>LOGIN</button>
                         <div id="error-message" className="error-message"></div>
                     </div>
                 </div>
@@ -28,5 +55,10 @@ class LoginPage extends Component {
         );
     }
 }
+
+LoginPage = connect(
+    state => ({
+    }), {setUserType, setActiveRoutes }
+  )(LoginPage)
 
 export default LoginPage;

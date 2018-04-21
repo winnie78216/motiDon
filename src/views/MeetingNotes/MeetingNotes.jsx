@@ -3,6 +3,8 @@ import { Grid, InputLabel, withStyles, TextField } from "material-ui";
 import SaveIcon from 'material-ui-icons/Save';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { connect } from 'react-redux'
+import { addMeetingNote } from './meetingNotesActionCreator'
 
 import { Button, CustomInput, RegularCard, EnhancedTable, ItemGrid, Small } from "components";
 
@@ -20,6 +22,7 @@ const style = {
 };
 
 function MeetingNotes({ ...props }) {
+  console.log(props)
   return (
     <Grid container>
       <ItemGrid xs={12} sm={12} md={12}>
@@ -96,7 +99,7 @@ function MeetingNotes({ ...props }) {
               </Grid>
             </div>
           }
-          footer={<Button color="info"> <SaveIcon className={props.classes.icon} />Vista</Button>}
+          footer={<Button color="info" onClick={props.addMeetingNote}> <SaveIcon className={props.classes.icon} />Vista</Button>}
         />
       </ItemGrid>
       <ItemGrid xs={12} sm={12} md={12}>
@@ -107,18 +110,7 @@ function MeetingNotes({ ...props }) {
             <EnhancedTable
               tableHeaderColor="blue"
               tableHead={["Dagsetning", "Titill", "Málsnúmer", "Staðsetning", "Þátttakendur", "Samantekt", "Aðgerðir"]}
-              tableData={[
-                ["2018-03-16", "Afmæli bæjarins", "886843", "Siglufjörður", "HH | EE", "Á þessum fundi fór fram ...."],
-                ["2018-03-15", "Árshátíð", "553374", "Siglufjörður", "HH | EE | BE", "Á þessum fundi fór fram ...."],
-                ["2018-03-16", "Afmæli bæjarins", "886843", "Siglufjörður", "HH | EE", "Á þessum fundi fór fram ...."],
-                ["2018-03-15", "Árshátíð", "553374", "Siglufjörður", "HH | EE | BE", "Á þessum fundi fór fram ...."],
-                ["2018-03-16", "Afmæli bæjarins", "886843", "Siglufjörður", "HH | EE", "Á þessum fundi fór fram ...."],
-                ["2018-03-15", "Árshátíð", "553374", "Siglufjörður", "HH | EE | BE", "Á þessum fundi fór fram ...."],
-                ["2018-03-16", "Afmæli bæjarins", "886843", "Siglufjörður", "HH | EE", "Á þessum fundi fór fram ...."],
-                ["2018-03-15", "Árshátíð", "553374", "Siglufjörður", "HH | EE | BE", "Á þessum fundi fór fram ...."],
-                ["2018-03-16", "Afmæli bæjarins", "886843", "Siglufjörður", "HH | EE", "Á þessum fundi fór fram ...."],
-                ["2018-03-15", "Árshátíð", "553374", "Siglufjörður", "HH | EE | BE", "Á þessum fundi fór fram ...."],
-              ]}
+              tableData={props.data}
             />
           }
         />
@@ -126,5 +118,11 @@ function MeetingNotes({ ...props }) {
     </Grid>
   );
 }
+
+MeetingNotes = connect(
+  state => ({
+    data: state.meetingNotesReducer.meetingNotes.data
+  }), { addMeetingNote }
+)(MeetingNotes)
 
 export default withStyles(style)(MeetingNotes);

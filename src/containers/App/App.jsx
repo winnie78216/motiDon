@@ -7,6 +7,7 @@ import "perfect-scrollbar/css/perfect-scrollbar.css";
 import { withStyles } from "material-ui";
 
 import { Header, Footer, Sidebar } from "components";
+import { connect } from 'react-redux'
 
 import appRoutes from "routes/app.jsx";
 
@@ -45,6 +46,7 @@ class App extends React.Component {
     this.refs.mainPanel.scrollTop = 0;
   }
   render() {
+    console.log(this.props)
     const { classes, ...rest } = this.props;
     return (
       <div className={classes.wrapper}>
@@ -82,5 +84,12 @@ class App extends React.Component {
 App.propTypes = {
   classes: PropTypes.object.isRequired
 };
+
+App = connect(
+  state => ({
+    userType: state.appStateReducer.appState.userType,
+    activeRoutes : state.appStateReducer.appState.activeRoutes
+  })
+)(App)
 
 export default withStyles(appStyle)(App);

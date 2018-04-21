@@ -38,6 +38,14 @@ const appRoutes = [
     icon: ContentPaste,
     component: MeetingNotes
   },
+  {
+    path: "/login",
+    sidebarName: "Log out",
+    navbarName: "Log out",
+    icon: null,
+    component: MeetingNotes,
+    login: true,
+  },
 /*   {
     path: "/typography",
     sidebarName: "Typography",
@@ -66,7 +74,7 @@ const appRoutes = [
     icon: Notifications,
     component: NotificationsPage
   }, */
-  { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
+  { redirect: true, path: "/", to: "/login", navbarName: "Redirect" }
 ];
 
 export default appRoutes;
