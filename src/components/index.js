@@ -83,6 +83,8 @@ import Danger from "./Typography/Danger.jsx";
 import Small from "./Typography/Small.jsx";
 import A from "./Typography/A.jsx";
 
+import DonationDialog from "./Dialogs/DonationDialog.jsx"
+
 export {
   // Cards
   ChartCard,
@@ -124,5 +126,6 @@ export {
   Warning,
   Danger,
   Small,
-  A
+  A,
+  DonationDialog
 };

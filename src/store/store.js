@@ -1,8 +1,9 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import meetingNotesReducer from '../views/MeetingNotes/meetingNotesReducer';
 import appStateReducer from '../appState/appStateReducer';
-import campaignsReducer from '../views/Campaigns/campaignsReducer'
-import donationMapReducer from '../views/DonationMap/donationMapReducer'
+import campaignsReducer from '../views/Campaigns/campaignsReducer';
+import donationMapReducer from '../views/DonationMap/donationMapReducer';
+import orginizationReducer from '../views/Orginization/orginizationReducer';
 import thunkMiddleware from 'redux-thunk'
 import {routerReducer} from 'react-router-redux'
 
@@ -10,6 +11,7 @@ const reducer = combineReducers({ // all reducers are combined into one reducer
     meetingNotesReducer,
     appStateReducer,
     campaignsReducer,
+    orginizationReducer,
     donationMapReducer,
     routing: routerReducer,
 });
