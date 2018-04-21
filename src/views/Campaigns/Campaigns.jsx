@@ -22,7 +22,7 @@ const style = {
 function Campaigns({ ...props }) {
 
   const campaignCards = props.data.map((entry, index) => 
-    <ItemGrid xs={12} sm={12} md={6}>
+    <ItemGrid xs={12} sm={12} md={4}>
     <div style={{margin:10, display:'inline-block'}}>
       <CampaignCard data={entry} />
       </div>

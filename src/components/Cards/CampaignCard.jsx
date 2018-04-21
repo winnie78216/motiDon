@@ -47,6 +47,9 @@ function CampaignCard(props) {
           <Button size="small" color="primary">
             Donate
           </Button>
+          <Button size="small" color="primary">
+            Results
+          </Button>
         </CardActions>
 
       </Card>
