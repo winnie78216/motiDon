@@ -32,6 +32,7 @@ import Footer from "./Footer/Footer.jsx";
 // #############################
 
 import ItemGrid from "./Grid/ItemGrid.jsx";
+import AwesomeMap from "./Map/AwesomeMap.jsx";
 
 // ##############################
 // // // Header
@@ -97,6 +98,7 @@ export {
   Footer,
   // Grid
   ItemGrid,
+  AwesomeMap,
   // Header
   Header,
   HeaderLinks,

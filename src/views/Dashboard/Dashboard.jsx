@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
 import {
@@ -22,7 +23,8 @@ import {
   TasksCard,
   RegularCard,
   Table,
-  ItemGrid
+  ItemGrid,
+  AwesomeMap
 } from "components";
 
 import {
@@ -32,6 +34,11 @@ import {
 } from "variables/charts";
 
 import dashboardStyle from "variables/styles/dashboardStyle";
+
+const center = {
+  lat: 51.5,
+  lng: 0,
+};
 
 class Dashboard extends React.Component {
   state = {
@@ -49,6 +56,9 @@ class Dashboard extends React.Component {
       <div>
         <Grid container>
           <ItemGrid xs={12} sm={6} md={3}>
+            <AwesomeMap />
+          </ItemGrid>
+          <ItemGrid xs={12} sm={6} md={3}>
             <StatsCard
               icon={ContentCopy}
               iconColor="orange"
@@ -57,9 +67,10 @@ class Dashboard extends React.Component {
               small="GB"
               statIcon={Warning}
               statIconColor="danger"
-              statLink={{ text: "Get More Space...", href: "#pablo" }}
+              statLink={{ text: "test2..", href: "#pablo" }}
             />
           </ItemGrid>
+
           <ItemGrid xs={12} sm={6} md={3}>
             <StatsCard
               icon={Store}
