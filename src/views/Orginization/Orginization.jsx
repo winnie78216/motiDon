@@ -4,7 +4,8 @@ import SaveIcon from 'material-ui-icons/Save';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { connect } from 'react-redux'
-import { Button, CustomInput, RegularCard, EnhancedTable, ItemGrid, Small, CampaignCard } from "components";
+import axios from 'axios';
+import { Table,Button, CustomInput, RegularCard, EnhancedTable, ItemGrid, Small, CampaignCard } from "components";
 
 const style = {
   datePicker: {
@@ -19,16 +20,53 @@ const style = {
   },
 };
 
-function Orginization({ ...props }) {
+class Orginization extends React.Component {
 
-console.log(props)
+    constructor(props) {
+        super(props);
+        this.state = {
+          address: '',
+          transactions: [],
+        };
+      }
+
+componentWillMount = () => {
+    axios.get('https://blockchain.info/address/1BF8SHKnT8ZysYNrj5toeu6DsuGE5XDcCR?format=json&offset=0').then(res => {
+        const data = res.data
+        const serviceProviders = ['Hospital', 'Education', 'Consultancy', 'Sanitation', 'Food']
+        const transactions = []
+        data.txs.map(entry => {
+            entry.inputs.map(entryIn => {
+                transactions.push([entryIn.prev_out.addr, "Donation", "<span style='color:green'>+" + (entryIn.prev_out.value/100000000).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1.') + "</span>", 'BTC'])
+            })
+            entry.out.map(entryOut => {
+                transactions.push([entryOut.addr, serviceProviders[Math.floor(Math.random()*serviceProviders.length)],  "<span style='color:red'>-" + (entryOut.value/100000000).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1.') + "</span>", 'BTC'])
+            })
+        })
+        this.setState({address: data.address, transactions: transactions})
+    })
+}
+
+render() {
+
   return (
     <Grid container>
-        <ItemGrid xs={12} sm={12} md={8}>
-        lol
+        <ItemGrid xs={12} sm={12} md={12}>
+        <RegularCard
+          cardTitle="NCR transactions"
+          cardSubtitle={"Id: " + this.state.address}
+          content={
+            <Table
+              tableHeaderColor="primary"
+              tableHead={["Id", "Sender/Receiver", "Amount", ""]}
+              tableData={this.state.transactions}
+            />
+          }
+        />
         </ItemGrid> 
     </Grid>
   );
+}
 }
 
 Orginization = connect(
