@@ -23,8 +23,7 @@ import {
   TasksCard,
   RegularCard,
   Table,
-  ItemGrid,
-  AwesomeMap
+  ItemGrid
 } from "components";
 
 import {
@@ -55,9 +54,6 @@ class Dashboard extends React.Component {
     return (
       <div>
         <Grid container>
-          <ItemGrid xs={12} sm={6} md={3}>
-            <AwesomeMap />
-          </ItemGrid>
           <ItemGrid xs={12} sm={6} md={3}>
             <StatsCard
               icon={ContentCopy}
