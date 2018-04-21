@@ -22,7 +22,7 @@ class AwesomeMap extends React.Component {
     render() { 
 
     return (
-        <div ref={this.myRef} > </div> 
+        <div style={{height:100, width:100}} ref={this.myRef} > </div> 
     );
 }
 }
