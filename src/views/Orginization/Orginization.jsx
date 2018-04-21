@@ -19,28 +19,22 @@ const style = {
   },
 };
 
-function Campaigns({ ...props }) {
+function Orginization({ ...props }) {
 
-  const campaignCards = props.data.map((entry, index) => 
-    <ItemGrid xs={12} sm={12} md={6}>
-    <div style={{margin:10, display:'inline-block'}}>
-      <CampaignCard data={entry} />
-      </div>
-    </ItemGrid> 
-  )
 console.log(props)
   return (
     <Grid container>
-        {campaignCards}
-
+        <ItemGrid xs={12} sm={12} md={8}>
+        lol
+        </ItemGrid> 
     </Grid>
   );
 }
 
-Campaigns = connect(
+Orginization = connect(
   state => ({
-    data: state.campaignsReducer.campaigns.data
+    data: state.orginizationReducer.orginization.data
   })
-)(Campaigns)
+)(Orginization)
 
-export default withStyles(style)(Campaigns);
+export default withStyles(style)(Orginization);

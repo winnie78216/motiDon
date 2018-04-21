@@ -6,6 +6,7 @@ import Campaigns from "views/Campaigns/Campaigns.jsx";
 import DonationMap from "views/DonationMap/DonationMap.jsx";
 import Icons from "views/Icons/Icons.jsx";
 import Maps from "views/Maps/Maps.jsx";
+import Orginization from "views/Orginization/Orginization.jsx"
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 
 import {
@@ -62,6 +63,14 @@ const appRoutes = [
     navbarName: "Log out",
     icon: null,
     component: MeetingNotes,
+    login: true,
+  },  
+  {
+    path: "/orginization",
+    sidebarName: "",
+    navbarName: "",
+    icon: null,
+    component: Orginization,
     login: true,
   },  
 
