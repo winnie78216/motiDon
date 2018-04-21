@@ -4,7 +4,7 @@ import SaveIcon from 'material-ui-icons/Save';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { connect } from 'react-redux'
-import { Button, CustomInput, RegularCard, EnhancedTable, ItemGrid, Small, CampaignCard } from "components";
+import { Button, CustomInput, RegularCard, EnhancedTable, ItemGrid, Small, CampaignCard, AwesomeMap } from "components";
 
 const style = {
   datePicker: {
@@ -21,12 +21,12 @@ const style = {
 
 function DonationMap({ ...props }) {
 
-console.log(props)
+  console.log(props)
   return (
     <Grid container>
-        <ItemGrid xs={12} sm={12} md={8}>
-        lol
-        </ItemGrid> 
+      <ItemGrid xs={12} sm={12} md={8}>
+        <AwesomeMap />
+      </ItemGrid>
     </Grid>
   );
 }
